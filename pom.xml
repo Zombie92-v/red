@@ -1,0 +1,609 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<!--    <parent>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+<!--        <version>2.3.0.RELEASE</version>-->
+<!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+<!--    </parent>-->
+
+    <parent>
+        <groupId>com.miniso.framework</groupId>
+        <artifactId>mini-framework</artifactId>
+        <version>1.3.8</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.idea</groupId>
+    <artifactId>idea</artifactId>
+    <version>1.0.0.0.idea</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>idea-common</module>
+        <module>idea-persistence</module>
+        <module>idea-persistence-api</module>
+        <module>idea-service-api</module>
+        <module>idea-service</module>
+        <module>idea-web</module>
+        <module>idea-rocketmq</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <idea-common.version>1.0.0.11.idea</idea-common.version>
+
+        <cglib.version>3.2.5</cglib.version>
+        <hutool.version>5.7.18</hutool.version>
+<!--        <slf4j.version>1.7.24</slf4j.version>-->
+<!--        <spring.version>5.1.3.RELEASE</spring.version>-->
+<!--        <spring-boot.version>2.1.1.RELEASE</spring-boot.version>-->
+        <mybatisplus.version>3.2.0</mybatisplus.version>
+        <mybatisplus.support.version>2.3</mybatisplus.support.version>
+        <mybatisplus.template.version>2.0</mybatisplus.template.version>
+        <mysql.version>8.0.27</mysql.version>
+        <dynamic.version>3.5.0</dynamic.version>
+        <javax.validation.version>2.0.1.Final</javax.validation.version>
+        <junit.version>4.12</junit.version>
+        <jwt-token.version>3.9.0</jwt-token.version>
+        <lettuce.version>5.1.3.RELEASE</lettuce.version>
+        <pool2.version>2.8.0</pool2.version>
+        <jackson-databind.version>2.9.6</jackson-databind.version>
+        <aliyun-oss.version>3.8.0</aliyun-oss.version>
+        <aliyun-core.version>4.5.3</aliyun-core.version>
+        <commons-fileupload.version>1.3.3</commons-fileupload.version>
+        <commons-io.version>2.4</commons-io.version>
+        <ali-pay.version>2.1.2</ali-pay.version>
+        <gson.version>2.8.9</gson.version>
+        <guava.version>30.0-jre</guava.version>
+        <fastjson.version>1.2.56</fastjson.version>
+        <commons.collections.version>3.2.2</commons.collections.version>
+        <shiro.version>1.4.0</shiro.version>
+        <kaptcha.version>0.0.9</kaptcha.version>
+        <cos.version>5.4.4</cos.version>
+        <servlet-api.version>2.5</servlet-api.version>
+		<apollo.version>1.1.0</apollo.version>
+		<poi.version>1.9.1</poi.version>
+		<pinyin4j.version>2.5.0</pinyin4j.version>
+        <easyexcel.version>2.2.6</easyexcel.version>
+        <apache-poi.version>4.1.2</apache-poi.version>
+        <reflections.version>0.9.11</reflections.version>
+
+        <poi-tl-ext.version>0.4.8</poi-tl-ext.version>
+        <!--<rocketmq-spring-boot.version>2.2.0</rocketmq-spring-boot.version>-->
+        <mini.rocketmq.version>2.2.0</mini.rocketmq.version>
+
+<!--        <rocketmq-client.version>4.8.0</rocketmq-client.version>-->
+<!--        <logback.version>1.2.8</logback.version>-->
+        <alibaba-cloud.version>2.2.9.RELEASE</alibaba-cloud.version>
+        <alibaba-rocketmq.version>2.2.4</alibaba-rocketmq.version>
+        <rocksdbjni.version>6.8.1</rocksdbjni.version>
+        <xxl-job.version>2.2.0</xxl-job.version>
+        <hikari.version>4.0.3</hikari.version>
+        <framework-test-version>1.4.0</framework-test-version>
+        <miniso-master-data.version>1.18.1.2</miniso-master-data.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- project-xxx-xxx jar -->
+            <dependency>
+                <groupId>com.idea</groupId>
+                <artifactId>idea-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.idea</groupId>
+                <artifactId>idea-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.idea</groupId>
+                <artifactId>idea-service-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.idea</groupId>
+                <artifactId>idea-persistence</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.idea</groupId>
+                <artifactId>idea-persistence-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- cglib beanCopy -->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+
+            <!--log related begin -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <!-- spring boot begin-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <!-- spring-boot aop -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <!-- spring -->
+            <!--<dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework</groupId>-->
+<!--                <artifactId>spring-beans</artifactId>-->
+<!--                <version>${spring.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework</groupId>-->
+<!--                <artifactId>spring-core</artifactId>-->
+<!--                <version>${spring.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework</groupId>-->
+<!--                <artifactId>spring-tx</artifactId>-->
+<!--                <version>${spring.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework</groupId>-->
+<!--                <artifactId>spring-test</artifactId>-->
+<!--                <version>${spring.version}</version>-->
+<!--            </dependency>-->
+
+            <!-- mybatis -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisplus.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.baomidou</groupId>
+                        <artifactId>mybatis-plus-generator</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${hikari.version}</version>
+            </dependency>
+
+            <!--主从配置依赖-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic.version}</version>
+            </dependency>
+
+            <!-- swagger-ui start -->
+            <dependency>
+                <groupId>com.miniso.framework</groupId>
+                <artifactId>framework-docs-swagger</artifactId>
+                <version>${mini.framework.version}</version>
+            </dependency>
+            <!-- swagger-ui end -->
+
+            <!-- mybatis-plus start -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-core</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-support</artifactId>
+                <version>${mybatisplus.support.version}</version>
+            </dependency>
+
+            <!--mybatis文件生成器模版引擎注入jar 上线时需注释掉 start-->
+            <!--<dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${mybatisplus.template.version}</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-tools</artifactId>
+                <version>${mybatisplus.template.version}</version>
+            </dependency>
+
+            <!--<dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+            </dependency>-->
+            <!--mybatis文件生成器模版引擎注入jar 上线时需注释掉 end-->
+
+            <!-- mybatis-plus end -->
+
+            <!-- validation begin -->
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${javax.validation.version}</version>
+            </dependency>
+            <!-- validation end -->
+
+            <!-- junit单元测试 begin -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- junit单元测试 end -->
+
+            <!-- jwt token -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt-token.version}</version>
+            </dependency>
+
+            <!-- jackson json 优化缓存对象序列化 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${pool2.version}</version>
+            </dependency>
+            <!-- redis lettuce end -->
+
+            <!-- aliyun sdk start -->
+
+            <!-- oss -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-oss.version}</version>
+            </dependency>
+            <!-- sms -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${aliyun-core.version}</version>
+            </dependency>
+
+            <!-- aliyun sdk end -->
+
+            <!-- file upload -->
+            <!--<dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons-fileupload.version}</version>
+            </dependency>-->
+            <!-- file upload -->
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <!-- pay alipay -->
+            <dependency>
+                <groupId>com.alipay.sdk</groupId>
+                <artifactId>alipay-easysdk</artifactId>
+                <version>${ali-pay.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons.collections.version}</version>
+            </dependency>
+
+            <!-- shiro -->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+            <!-- captcha -->
+            <dependency>
+                <groupId>com.github.axet</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+
+            <!-- 腾讯云COS-->
+            <dependency>
+                <groupId>com.qcloud</groupId>
+                <artifactId>cos_api</artifactId>
+                <version>${cos.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+			<!-- servlet-api -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+			<!--apollo start -->
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>${apollo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-core</artifactId>
+                <version>${apollo.version}</version>
+            </dependency>
+            <!--apollo end -->
+
+            <!-- export word start -->
+            <dependency>
+                <groupId>com.deepoove</groupId>
+                <artifactId>poi-tl</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.draco1023</groupId>
+                <artifactId>poi-tl-ext</artifactId>
+                <version>${poi-tl-ext.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.belerweb</groupId>
+                <artifactId>pinyin4j</artifactId>
+                <version>${pinyin4j.version}</version>
+            </dependency>
+            <!-- export word end -->
+
+
+            <!--  excel start -->
+            <!--  easyExcel-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcel.version}</version>
+            </dependency>
+
+            <!--  apache poi-->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${apache-poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${apache-poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>${apache-poi.version}</version>
+            </dependency>
+            <!--  excel end -->
+
+			<!-- reflections -->
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>${reflections.version}</version>
+            </dependency>
+
+            <!-- spring cloud stream rocketmq -->
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-stream-binder-rocketmq</artifactId>-->
+<!--                <version>${alibaba-cloud.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>-->
+<!--                <version>${alibaba-cloud.version}</version>-->
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.apache.rocketmq</groupId>-->
+<!--                        <artifactId>rocketmq-client</artifactId>-->
+<!--                    </exclusion>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.apache.rocketmq</groupId>-->
+<!--                        <artifactId>rocketmq-acl</artifactId>-->
+<!--                    </exclusion>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.apache.rocketmq</groupId>-->
+<!--                        <artifactId>rocketmq-spring-boot-starter</artifactId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+<!--            </dependency>-->
+            <dependency>
+                <groupId>org.rocksdb</groupId>
+                <artifactId>rocksdbjni</artifactId>
+                <version>${rocksdbjni.version}</version>
+            </dependency>
+
+            <!--xxl-job start-->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+            </dependency>
+            <!--xxl-job end-->
+
+            <dependency>
+                <groupId>com.miniso.framework</groupId>
+                <artifactId>framework-log-logback</artifactId>
+                <version>${mini.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.miniso.framework</groupId>
+                <artifactId>framework-trace</artifactId>
+                <version>${mini.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-commons</artifactId>
+                <!--            <version>1.13.1.RELEASE</version>-->
+                <version>2.3.0.RELEASE</version>
+            </dependency>
+            <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.netflix.hystrix</groupId>
+                    <artifactId>hystrix-core</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>2.2.6.RELEASE</version>
+        </dependency>
+            <dependency>
+                <groupId>com.miniso</groupId>
+                <artifactId>miniso-master-data-api</artifactId>
+                <version>${miniso-master-data.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.miniso</groupId>
+                <artifactId>miniso-common-service-api</artifactId>
+                <version>1.11.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.miniso.framework</groupId>
+                <artifactId>framework-test</artifactId>
+                <version>${framework-test-version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

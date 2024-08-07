@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.zombie</groupId>
+        <artifactId>red</artifactId>
+        <version>0.0.1.red</version>
+    </parent>
+
+    <artifactId>red-web</artifactId>
+    <version>0.0.1.red</version>
+    <packaging>jar</packaging>
+
+    <modelVersion>4.0.0</modelVersion>
+    <name>red-web</name>
+    <description>red web</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.zombie</groupId>
+            <artifactId>red-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zombie</groupId>
+            <artifactId>red-service</artifactId>
+        </dependency>
+
+        <!-- tomcat begin -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
+        <!-- tomcat end -->
+
+        <!-- spring boot begin -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- spring boot end -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

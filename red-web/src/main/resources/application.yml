@@ -1,0 +1,10 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /zombie
+spring:
+  application:
+    name: zombie
+  # 环境 dev|test|prod
+  profiles:
+    active: dev
