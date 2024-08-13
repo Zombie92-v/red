@@ -6,32 +6,28 @@
     <parent>
         <groupId>com.zombie</groupId>
         <artifactId>red</artifactId>
-        <version>0.0.1.red</version>
+        <version>0.0.1.red-SNAPSHOT</version>
     </parent>
 
     <artifactId>red-service</artifactId>
 
 
     <name>red-service</name>
-    <description>Demo project for Spring Boot</description>
+    <description>服务层</description>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>2.6.6</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.zombie</groupId>
             <artifactId>red-common</artifactId>
-            <version>0.0.1.red</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.15.2</version> <!-- 请检查最新版本 -->
         </dependency>
     </dependencies>
 

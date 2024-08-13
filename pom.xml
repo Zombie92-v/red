@@ -11,7 +11,7 @@
 
     <groupId>com.zombie</groupId>
     <artifactId>red</artifactId>
-    <version>0.0.1.red</version>
+    <version>0.0.1.red-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
@@ -23,20 +23,105 @@
         <dependencies>
             <dependency>
                 <groupId>com.zombie</groupId>
-                <artifactId>red-common</artifactId>
-                <version>0.0.1.red</version>
+                <artifactId>red-service</artifactId>
+                <version>0.0.1.red-SNAPSHOT</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.zombie</groupId>
+                <artifactId>red-common</artifactId>
+                <version>0.0.1.red-SNAPSHOT</version>
+            </dependency>
             <dependency>
                 <groupId>com.zombie</groupId>
                 <artifactId>red-service</artifactId>
-                <version>0.0.1.red</version>
+                <version>0.0.1.red-SNAPSHOT</version>
             </dependency>
 
             <dependency>
-                <groupId>com.zombie</groupId>
-                <artifactId>red-web</artifactId>
-                <version>0.0.1.red</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>2.6.6</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.7.18</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.22</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>2.0.1.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>6.2.3.Final</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>30.0-jre</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-spring-boot-starter -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>2.0.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>1.15.2</version> <!-- 请检查最新版本 -->
+            </dependency>
+
+            <!-- tomcat begin -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-tomcat</artifactId>
+                <version>2.6.6</version>
+            </dependency>
+            <!-- tomcat end -->
+
+            <!-- spring boot begin -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>2.6.6</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-tomcat</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- spring boot end -->
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>3.3.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+                <version>2.6.6</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
